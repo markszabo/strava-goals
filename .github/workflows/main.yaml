@@ -29,3 +29,9 @@ jobs:
           value: ${{ steps.get-tokens.outputs.refresh-token }}
           repository: ${{ github.repository }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+      - name: Run the script
+        env:
+          ACCESS_TOKEN: ${{ steps.get-tokens.outputs.access-token }}
+        run: python3 main.py
+          
