@@ -27,5 +27,5 @@ jobs:
         with:
           name: 'STRAVA_APP_REFRESH_TOKEN'
           value: ${{ steps.get-tokens.outputs.refresh-token }}
-          repository: hmanzur/actions-set-secret
+          repository: ${{ github.repository }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
