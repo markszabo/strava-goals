@@ -1,0 +1,33 @@
+name: Send weekly email
+
+on: [push] #TODO: add scheduled runs
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Strava access & refresh tokens
+        id: get-tokens
+        run: |
+          curl -X POST https://www.strava.com/api/v3/oauth/token \
+            -d client_id=${{ secrets.STRAVA_APP_CLIENT_ID }} \
+            -d client_secret=${{ secrets.STRAVA_APP_CLIENT_SECRET }} \
+            -d grant_type=refresh_token \
+            -d refresh_token=${{ secrets.STRAVA_APP_REFRESH_TOKEN }} > tokens.json
+          ACCESS_TOKEN=$(jq -r '.access_token' tokens.json)
+          REFRESH_TOKEN=$(jq -r '.refresh_token' tokens.json)
+          rm tokens.json
+          echo "::add-mask::$ACCESS_TOKEN"
+          echo "::add-mask::$REFRESH_TOKEN"
+          echo "access-token=$ACCESS_TOKEN" >> "$GITHUB_OUTPUT"
+          echo "refresh-token=$REFRESH_TOKEN" >> "$GITHUB_OUTPUT"
+
+        - name: Update refresh token in secrets
+          uses: hmanzur/actions-set-secret@7676ca1af04977d44f2bd1bb6f1d258780893710
+          with:
+            name: 'STRAVA_APP_REFRESH_TOKEN'
+            value: ${{ steps.get-tokens.outputs.refresh-token }}
+            repository: hmanzur/actions-set-secret
+            token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+        
