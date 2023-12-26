@@ -23,7 +23,7 @@ jobs:
           echo "refresh-token=$REFRESH_TOKEN" >> "$GITHUB_OUTPUT"
 
       - name: Update refresh token in secrets
-        uses: hmanzur/actions-set-secret@7676ca1af04977d44f2bd1bb6f1d258780893710
+        uses: hmanzur/actions-set-secret@377391a32b6d43a053d7847dde34ac6179ac9f55 #v2.0.0
         with:
           name: 'STRAVA_APP_REFRESH_TOKEN'
           value: ${{ steps.get-tokens.outputs.refresh-token }}
