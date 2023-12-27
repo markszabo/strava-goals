@@ -7,8 +7,8 @@ import date, strava, templating
 # config
 WEEKLY_DISTANCE_GOAL = 10
 MONTHLY_DISTANCE_GOAL = 100
-NUMBER_OF_WEEKS_IN_THE_EMAIL = 12 # has to be within a year
-NUMBER_OF_MONTHS_IN_THE_EMAIL = 12 # has to be within a year
+NUMBER_OF_WEEKS_IN_THE_EMAIL = 120 # has to be within a year
+NUMBER_OF_MONTHS_IN_THE_EMAIL = 24 # has to be within a year
 
 # config from environment variables
 ACCESS_TOKEN=os.environ['ACCESS_TOKEN']
