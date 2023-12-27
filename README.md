@@ -31,3 +31,12 @@ STRAVA_APP_REFRESH_TOKEN
 
 Create a GitHub Fine-grained personal access tokens with permissions to read/write secrets on this repo, and add it to GitHub Secrets under `REPO_ACCESS_TOKEN`.
 
+### 4. Create a Google App Password
+
+Following the [instructions here](https://support.google.com/accounts/answer/185833) create a Google App Password for your account and store it in GitHub Secrets under `GOOGLE_PASSWORD`.
+Also store the associated Google username in `GOOGLE_USER`.
+These are used for sending the email, and the recipient can be different.
+
+### 5. Configure the address to send the email to
+
+Configure the address you want to receive the email to in the GitHub Secret `RECIPIENT_EMAIL`.

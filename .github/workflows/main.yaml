@@ -31,7 +31,13 @@ jobs:
         repository: ${{ github.repository }}
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
+    - name: Install python requirement
+      run: pip3 install -r requirements.txt
+
     - name: Run the script
       env:
         ACCESS_TOKEN: ${{ steps.get-tokens.outputs.access-token }}
+        GOOGLE_USER: ${{ secrets.GOOGLE_USER }}
+        GOOGLE_PASSWORD: ${{ secrets.GOOGLE_PASSWORD }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
       run: python3 main.py
