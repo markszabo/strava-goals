@@ -1,11 +1,11 @@
 # strava-goals
 
-An automation to send weekly emails about my progress towards my Strava goals
-
-My Strava goals are:
+An automation to send weekly emails about my progress towards my Strava goals:
 
 * 10 km excercise per week (Monday-Sunday)
 * 100 km excercise per calendar month
+
+These can be adjusted in the beginning of [main.py](./main.py).
 
 ## Setup
 
@@ -43,7 +43,7 @@ STRAVA_APP_REFRESH_TOKEN
 
 Create a GitHub Fine-grained personal access token with the permission to read/write secrets on this repo, and add it to GitHub Secrets under `REPO_ACCESS_TOKEN`.
 
-This will be used to continously update the refresh token (as it's single-use).
+This will be used to continously update the refresh token in GitHub Secrets (as it's single-use).
 
 ### 4. Create a Google App Password
 
@@ -53,4 +53,4 @@ These are used for sending the email, and the recipient can be different.
 
 ### 5. Configure the address to send the email to
 
-Configure the address you want to receive the email to in the GitHub Secret `RECIPIENT_EMAIL`.
+Configure the address you want to send the email to in the GitHub Secret `RECIPIENT_EMAIL`.

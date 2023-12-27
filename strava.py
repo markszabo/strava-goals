@@ -1,6 +1,5 @@
 import requests
 import sys
-import math
 
 # local imports
 import date
@@ -57,7 +56,7 @@ def get_progress(activities, timeframe, number_of_periods, goal):
     
     progress.append({
       "dates": timeframe_display,
-      "progress": math.floor(distance_all/goal*100) if distance_all < goal else 100,
+      "progress": min(round(distance_all/goal*100), 100),
       "distance_all": round(distance_all * 100) / 100, # only keep 2 decimal places, e.g. 12.34
       "distance_cycling": round(distance_cycling * 100) / 100,
       "distance_running": round(distance_running * 100) / 100,

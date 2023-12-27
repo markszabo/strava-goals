@@ -17,7 +17,8 @@ GOOGLE_PASSWORD=os.environ['GOOGLE_PASSWORD']
 RECIPIENT_EMAIL=os.environ['RECIPIENT_EMAIL']
 
 print("Getting activities from the Strava API")
-activities = strava.get_activities(date.get_one_year_ago_timestamp(), ACCESS_TOKEN)
+from_timestamp = date.get_timestamp_days_ago(max(NUMBER_OF_WEEKS_IN_THE_EMAIL*7, NUMBER_OF_MONTHS_IN_THE_EMAIL*31))
+activities = strava.get_activities(from_timestamp, ACCESS_TOKEN)
 
 print("Calculating progress")
 weekly_progress = strava.get_progress(activities, "week", NUMBER_OF_WEEKS_IN_THE_EMAIL, WEEKLY_DISTANCE_GOAL)

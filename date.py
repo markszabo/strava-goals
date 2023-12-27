@@ -2,8 +2,8 @@ import datetime
 from dateutil.relativedelta import relativedelta
 import calendar
 
-def get_one_year_ago_timestamp():
-    a_year_ago = datetime.date.today() - datetime.timedelta(365)
+def get_timestamp_days_ago(days_ago):
+    a_year_ago = datetime.date.today() - datetime.timedelta(days_ago)
     return a_year_ago.strftime("%s")
 
 def get_start_and_end_of_prior_week(nr_of_weeks_ago):
