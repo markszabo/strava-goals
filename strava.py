@@ -45,6 +45,7 @@ def get_progress(activities, timeframe, number_of_periods, goal):
     distance_all = 0
     distance_cycling = 0
     distance_running = 0
+    distance_skiing = 0
     for activity in activities:
       activity_start = date.get_starttime_from_activity(activity)
       if timeframe_start < activity_start and activity_start < timeframe_end:
@@ -53,6 +54,8 @@ def get_progress(activities, timeframe, number_of_periods, goal):
           distance_cycling += activity["distance"]/1000
         elif activity["type"] == "Run":
           distance_running += activity["distance"]/1000
+        elif activity["type"] == "AlpineSki" or activity["type"] == "NordicSki":
+          distance_skiing += activity["distance"]/1000
     
     progress.append({
       "dates": timeframe_display,
@@ -60,6 +63,7 @@ def get_progress(activities, timeframe, number_of_periods, goal):
       "distance_all": round(distance_all * 100) / 100, # only keep 2 decimal places, e.g. 12.34
       "distance_cycling": round(distance_cycling * 100) / 100,
       "distance_running": round(distance_running * 100) / 100,
+      "distance_skiing": round(distance_skiing * 100) / 100,
     })
 
   return progress
