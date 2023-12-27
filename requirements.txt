@@ -1,0 +1,4 @@
+requests>=2.31.0
+yagmail[all]>=0.15.293
+jinja2>=3.1.2
+python-dateutil>=2.8.2

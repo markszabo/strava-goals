@@ -1,0 +1,41 @@
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Progress</th>
+            <th>Distance</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in progress %}
+        {% if p.progress < 50 %}
+            {% set progress_color = 'red' %}
+        {% elif p.progress <= 80 %}
+            {% set progress_color = 'orange' %}
+        {% else %}
+            {% set progress_color = 'green' %}
+        {% endif %}
+        <tr>
+            <td>{{ p.dates }}</td>
+            <td>
+                <table style="border:0;" cellpadding="0" cellspacing="0" width="250"><tr><td style="width:{{ p.progress }}%; background-color:{{ progress_color }}; float:left; height:15px;"></td><td style="width:{{ 100 - p.progress }}%; background-color:lightgray; float:left; height:15px;"></td></tr></table>
+            </td>
+            <td>{{ p.distance_all }} km 
+                {% if p.distance_all > 0 %}
+                (
+                  {% if p.distance_running > 0 %}
+                    🏃: {{ p.distance_running }} km;
+                  {% endif %}
+                  {% if p.distance_cycling > 0 %}
+                    🚲: {{ p.distance_cycling }} km;
+                  {% endif %}
+                  {% if p.distance_skiing > 0 %}
+                    ⛷️: {{ p.distance_skiing }} km;
+                  {% endif %}
+                )
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

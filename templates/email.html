@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<h2>Weekly goals</h2>
+
+{% with %}
+    {% set progress = weekly_progress %}
+    {% include 'progress_table.html' %}
+{% endwith %}
+
+<h2>Monthly goals</h2>
+
+{% with %}
+    {% set progress = monthly_progress %}
+    {% include 'progress_table.html' %}
+{% endwith %}
+
+</body>
+</html>
