@@ -66,4 +66,4 @@ def get_progress(activities, timeframe, number_of_periods, goal):
       "distance_skiing": round(distance_skiing * 100) / 100,
     })
 
-  return 
+  return progress
