@@ -1,11 +1,16 @@
 # strava-goals
 
-An automation to send weekly emails about my progress towards my Strava goals:
+An automation to send weekly emails about my progress towards my fitness goals using data from Strava. 
+(The goals can be adjusted in the beginning of [main.py](./main.py)):
 
 * 10 km excercise per week (Monday-Sunday)
 * 100 km excercise per calendar month
 
-These can be adjusted in the beginning of [main.py](./main.py).
+This is how the email looks like:
+
+![Example e-mail](./img/example-email.png)
+
+Supported sports: any sport with a distance counts towards the goals, but only running, cycling and skiing show up in the detailed distance breakdown.
 
 ## Setup
 
