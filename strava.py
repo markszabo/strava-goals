@@ -4,7 +4,7 @@ import sys
 # local imports
 import date
 
-# dev config
+# config
 REQUEST_PAGE_SIZE=200 # 200 seems to be the maximum
 
 def get_activities(after, ACCESS_TOKEN):
@@ -66,4 +66,4 @@ def get_progress(activities, timeframe, number_of_periods, goal):
       "distance_skiing": round(distance_skiing * 100) / 100,
     })
 
-  return progress
+  return 
