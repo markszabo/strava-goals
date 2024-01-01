@@ -3,9 +3,7 @@ name: Send weekly email
 on:
   push:
   schedule:
-  - cron: "0 20 * * *" # "0 20 * * 6" # run it on every Sunday evening
-    #TODO: revert to only  Sunday
-    # TODO figure out what this time exactly is in JST
+  - cron: "0 20 * * 6" # run it on every Sunday evening (Monday 5am in Japan Time)
 
 jobs:
   send-email:
