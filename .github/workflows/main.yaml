@@ -3,7 +3,7 @@ name: Send weekly email
 on:
   push:
   schedule:
-  - cron: "0 20 * * 6" # run it on every Sunday evening (Monday 5am in Japan Time)
+  - cron: "0 20 * * 0" # run it on every Sunday evening (Monday 5am in Japan Time)
 
 jobs:
   send-email:
